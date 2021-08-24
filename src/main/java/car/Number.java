@@ -1,5 +1,6 @@
 package car;
 
+import exception.ErrorCode;
 import exception.InvalidInputException;
 
 import java.util.Objects;
@@ -16,7 +17,7 @@ public class Number {
 
     public void validNumber(String number) {
         if (!Pattern.matches(NUMBER_VALIDATION_CODE, number)) {
-            throw new InvalidInputException(InvalidInputException.ErrorCode.NUMBER);
+            throw new InvalidInputException(ErrorCode.NUMBER);
         }
     }
 

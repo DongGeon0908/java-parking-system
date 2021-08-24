@@ -1,5 +1,6 @@
 package common;
 
+import exception.ErrorCode;
 import exception.InvalidInputException;
 
 import java.util.Arrays;
@@ -23,6 +24,6 @@ public enum Size {
         return Arrays.stream(Size.values())
                 .filter(s -> s.size == inputSize)
                 .findAny()
-                .orElseThrow(() -> new InvalidInputException(InvalidInputException.ErrorCode.SIZE));
+                .orElseThrow(() -> new InvalidInputException(ErrorCode.SIZE));
     }
 }

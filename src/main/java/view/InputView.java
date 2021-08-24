@@ -1,5 +1,6 @@
 package view;
 
+import exception.ErrorCode;
 import exception.InvalidInputException;
 
 import java.util.Arrays;
@@ -25,7 +26,7 @@ public class InputView {
         List<String> splitInputMessage = Arrays.asList(scanner.nextLine().split("-"));
 
         if (splitInputMessage.size() != ADD_INPUT_SIZE) {
-            throw new InvalidInputException(InvalidInputException.ErrorCode.WRONG_INPUT_SIZE);
+            throw new InvalidInputException(ErrorCode.WRONG_INPUT_SIZE);
         }
 
         return splitInputMessage;

@@ -1,5 +1,6 @@
 package parking;
 
+import exception.ErrorCode;
 import exception.InvalidInputException;
 
 import java.util.Arrays;
@@ -31,7 +32,7 @@ public enum Floor {
         return Arrays.stream(Floor.values())
                 .filter(f -> f.floor == inputFloor)
                 .findAny()
-                .orElseThrow(() -> new InvalidInputException(InvalidInputException.ErrorCode.FLOOR));
+                .orElseThrow(() -> new InvalidInputException(ErrorCode.FLOOR));
     }
 
 }

@@ -2,6 +2,7 @@ package parking;
 
 import car.Car;
 import common.Size;
+import exception.ErrorCode;
 import exception.InvalidInputException;
 
 import java.util.Map;
@@ -12,11 +13,11 @@ public class ParkingSystem {
 
     public void validDuplication(Position position, Car car) {
         if (isEmptyPosition(position)) {
-            throw new InvalidInputException(InvalidInputException.ErrorCode.DUPLICATION_POSITION);
+            throw new InvalidInputException(ErrorCode.DUPLICATION_POSITION);
         }
 
         if (isDuplicationCar(car)) {
-            throw new InvalidInputException(InvalidInputException.ErrorCode.DUPLICATION_CAR);
+            throw new InvalidInputException(ErrorCode.DUPLICATION_CAR);
         }
     }
 
@@ -33,22 +34,21 @@ public class ParkingSystem {
             storage.put(position, car);
             return car;
         }
-        throw new InvalidInputException(InvalidInputException.ErrorCode.NOT_CORRECT_SPOT_SIZE);
+        throw new InvalidInputException(ErrorCode.NOT_CORRECT_SPOT_SIZE);
     }
 
-    // carNumber를 잘 활용해보자!
     public Car takeOutCar(String carNumber) {
         for (Position position : storage.keySet()) {
             if (carNumber.equals(storage.get(position).number())) {
                 return storage.remove(position);
             }
         }
-        throw new InvalidInputException(InvalidInputException.ErrorCode.NOT_EXIT_CAR);
+        throw new InvalidInputException(ErrorCode.NOT_EXIT_CAR);
     }
 
     public void isFullStorage() {
         if (storage.size() == fullSize()) {
-            throw new InvalidInputException(InvalidInputException.ErrorCode.FULL_STORAGE);
+            throw new InvalidInputException(ErrorCode.FULL_STORAGE);
         }
     }
 
@@ -62,7 +62,7 @@ public class ParkingSystem {
                 return position;
             }
         }
-        throw new InvalidInputException(InvalidInputException.ErrorCode.NOT_EXIT_CAR);
+        throw new InvalidInputException(ErrorCode.NOT_EXIT_CAR);
     }
 
 }

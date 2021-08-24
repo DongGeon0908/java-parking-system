@@ -1,5 +1,6 @@
 package parking;
 
+import exception.ErrorCode;
 import exception.InvalidInputException;
 
 import java.util.Arrays;
@@ -26,7 +27,7 @@ public enum Spot {
         return Arrays.stream(Spot.values())
                 .filter(f -> f.spot == inputSpot)
                 .findAny()
-                .orElseThrow(() -> new InvalidInputException(InvalidInputException.ErrorCode.SPOT));
+                .orElseThrow(() -> new InvalidInputException(ErrorCode.SPOT));
     }
 
 }

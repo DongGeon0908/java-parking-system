@@ -1,5 +1,6 @@
 package view;
 
+import exception.ErrorCode;
 import exception.InvalidInputException;
 
 import java.util.Arrays;
@@ -20,7 +21,7 @@ public enum Menu {
         return Arrays.stream(Menu.values())
                 .filter(f -> f.menu.equals(inputMenu))
                 .findAny()
-                .orElseThrow(() -> new InvalidInputException(InvalidInputException.ErrorCode.WRONG_INPUT_MENU));
+                .orElseThrow(() -> new InvalidInputException(ErrorCode.WRONG_INPUT_MENU));
     }
 
 }
